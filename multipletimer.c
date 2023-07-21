@@ -1,8 +1,8 @@
-#include "multitimer.h"
+#include "multipletimer.h"
 
-timer_para* timer_head=NULL;
+multipletimer_type* xdata timer_head=NULL;
 
-void multitimer_init(timer_para* p_timer,unsigned int value,void(*func_cb)(void))
+void multipletimer_init(multipletimer_type* p_timer,unsigned int value,void(*func_cb)(void))
 {
 	p_timer->status=0;
 	p_timer->value=value;
@@ -10,9 +10,9 @@ void multitimer_init(timer_para* p_timer,unsigned int value,void(*func_cb)(void)
 	p_timer->next=NULL;
 }
 
-void multitimer_add(timer_para* p_timer)
+void multipletimer_add(multipletimer_type* p_timer)
 {
-	timer_para* p_temp;
+	multipletimer_type* xdata p_temp;
 	p_temp = timer_head;
 	if(p_temp)
 	{
@@ -28,9 +28,9 @@ void multitimer_add(timer_para* p_timer)
 	}
 }
 
-void multitimer_run(void)
+void multipletimer_run(void)
 {
-	timer_para* p_temp = timer_head;
+	multipletimer_type* p_temp = timer_head;
 	
 	while(p_temp)
 	{
@@ -44,9 +44,9 @@ void multitimer_run(void)
 
 }
 
-void multitimer_tick(void)
+void multipletimer_tick(void)
 {
-	timer_para* p_temp = timer_head;
+	multipletimer_type* xdata p_temp = timer_head;
 	
 	while(p_temp)
 	{
